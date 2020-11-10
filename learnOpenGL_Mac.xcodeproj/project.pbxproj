@@ -10,6 +10,7 @@
 		5FE540842541A58400730E35 /* dummy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5FE53FC12541A58300730E35 /* dummy.cpp */; };
 		5FE540852541A58400730E35 /* glm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5FE53FCC2541A58300730E35 /* glm.cpp */; };
 		5FE5408F2541B48600730E35 /* gl_utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5FE5408E2541B48600730E35 /* gl_utils.cpp */; };
+		5FFF52C4255AC5B300D9C1E7 /* camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5FFF52C2255AC5B300D9C1E7 /* camera.cpp */; };
 		C9940199251A20840094BB7F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C9940198251A20840094BB7F /* main.m */; };
 		C99401A3251A20BE0094BB7F /* libglfw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C99401A2251A20BE0094BB7F /* libglfw3.a */; };
 		C99401A6251A210B0094BB7F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C99401A5251A210B0094BB7F /* Cocoa.framework */; };
@@ -298,6 +299,8 @@
 		5FE5408D2541B48600730E35 /* gl_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gl_utils.h; sourceTree = "<group>"; };
 		5FE5408E2541B48600730E35 /* gl_utils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gl_utils.cpp; sourceTree = "<group>"; };
 		5FFF51F02551816300D9C1E7 /* awesomeface.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = awesomeface.png; sourceTree = SOURCE_ROOT; };
+		5FFF52C2255AC5B300D9C1E7 /* camera.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = camera.cpp; sourceTree = "<group>"; };
+		5FFF52C3255AC5B300D9C1E7 /* camera.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = camera.hpp; sourceTree = "<group>"; };
 		C9940195251A20840094BB7F /* learnOpenGL_Mac */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = learnOpenGL_Mac; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9940198251A20840094BB7F /* main.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = main.m; sourceTree = "<group>"; };
 		C99401A0251A20BE0094BB7F /* glfw3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glfw3.h; sourceTree = "<group>"; };
@@ -663,6 +666,8 @@
 				5FE5408B2541B29B00730E35 /* shaderv.h */,
 				5FE5408D2541B48600730E35 /* gl_utils.h */,
 				5FE5408E2541B48600730E35 /* gl_utils.cpp */,
+				5FFF52C2255AC5B300D9C1E7 /* camera.cpp */,
+				5FFF52C3255AC5B300D9C1E7 /* camera.hpp */,
 			);
 			path = learnOpenGL_Mac;
 			sourceTree = "<group>";
@@ -749,6 +754,7 @@
 				5FE540852541A58400730E35 /* glm.cpp in Sources */,
 				5FE540842541A58400730E35 /* dummy.cpp in Sources */,
 				C9940199251A20840094BB7F /* main.m in Sources */,
+				5FFF52C4255AC5B300D9C1E7 /* camera.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
