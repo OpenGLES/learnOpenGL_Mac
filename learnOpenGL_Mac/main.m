@@ -31,6 +31,15 @@ GLFWwindow* initWindow();
 const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
 
+// timing
+float deltaTime = 0.0f;    // time between current frame and last frame
+float lastFrame = 0.0f;
+
+// camera
+glm::vec3 cameraPos   = glm::vec3(0.0f, 0.0f,  3.0f);
+glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
+glm::vec3 cameraUp    = glm::vec3(0.0f, 1.0f,  0.0f);
+
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         // insert code here...
@@ -168,6 +177,10 @@ int main(int argc, const char * argv[]) {
         glEnable(GL_DEPTH_TEST);
         
         while(!glfwWindowShouldClose(window)) {
+            float currentFrame = glfwGetTime();
+            deltaTime = currentFrame - lastFrame;
+            lastFrame = currentFrame;
+            
             // 键盘输入
             processInput(window);
             
@@ -185,7 +198,13 @@ int main(int argc, const char * argv[]) {
             glUseProgram(shaderProgram);
             
             // create transformations
-            glm::mat4 view          = glm::mat4(1.0f);
+//            glm::mat4 view          = glm::mat4(1.0f);
+//            float radius = 10.0f;
+//            float camX   = sin(glfwGetTime()) * radius;
+//            float camZ   = cos(glfwGetTime()) * radius;
+//            view = glm::lookAt(glm::vec3(camX, 0.0f, camZ), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+            glm::mat4 view = glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp);
+            
             glm::mat4 projection    = glm::mat4(1.0f);
             
             view  = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f));
@@ -236,6 +255,16 @@ void processInput(GLFWwindow *window)
 {
     if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true);
+    
+    float cameraSpeed = 2.5 * deltaTime;
+    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+        cameraPos += cameraSpeed * cameraFront;
+    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+        cameraPos -= cameraSpeed * cameraFront;
+    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+        cameraPos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
+    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+        cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
 }
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
