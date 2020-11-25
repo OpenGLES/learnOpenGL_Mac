@@ -46,11 +46,6 @@ float lastY = SCR_HEIGHT / 2.0f;
 float deltaTime = 0.0f;    // time between current frame and last frame
 float lastFrame = 0.0f;
 
-// camera
-glm::vec3 cameraPos   = glm::vec3(0.0f, 0.0f,  3.0f);
-glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
-glm::vec3 cameraUp    = glm::vec3(0.0f, 1.0f,  0.0f);
-
 // lighting
 glm::vec3 lightPos(1.2f, 1.0f, 2.0f);
 
@@ -61,57 +56,60 @@ int main(int argc, const char * argv[]) {
 //        int shaderProgram = createProgram("233", shader_vsh, shader_fsh);
         
         glEnable(GL_DEPTH_TEST);
-        const char *colorsVS = "/Users/echo/Desktop/Demo/learnOpenGL_Mac/learnOpenGL_Mac/shader/colors.vs";
-        const char *colorsFS = "/Users/echo/Desktop/Demo/learnOpenGL_Mac/learnOpenGL_Mac/shader/colors.fs";
-        const char *light_cubeVS = "/Users/echo/Desktop/Demo/learnOpenGL_Mac/learnOpenGL_Mac/shader/light_cube.vs";
-        const char *light_cubeFS = "/Users/echo/Desktop/Demo/learnOpenGL_Mac/learnOpenGL_Mac/shader/light_cube.fs";
+//        const char *colorsVS = "/Users/echo/Desktop/Demo/learnOpenGL_Mac/learnOpenGL_Mac/shader/colors.vs";
+//        const char *colorsFS = "/Users/echo/Desktop/Demo/learnOpenGL_Mac/learnOpenGL_Mac/shader/colors.fs";
+//        const char *light_cubeVS = "/Users/echo/Desktop/Demo/learnOpenGL_Mac/learnOpenGL_Mac/shader/light_cube.vs";
+//        const char *light_cubeFS = "/Users/echo/Desktop/Demo/learnOpenGL_Mac/learnOpenGL_Mac/shader/light_cube.fs";
+        const char *colorsVS = "/Users/echo/Desktop/Demo/learnOpenGL_Mac/learnOpenGL_Mac/shader/2.1.basic_lighting.vs";
+        const char *colorsFS = "/Users/echo/Desktop/Demo/learnOpenGL_Mac/learnOpenGL_Mac/shader/2.1.basic_lighting.fs";
+        const char *light_cubeVS = "/Users/echo/Desktop/Demo/learnOpenGL_Mac/learnOpenGL_Mac/shader/2.1.light_cube.vs";
+        const char *light_cubeFS = "/Users/echo/Desktop/Demo/learnOpenGL_Mac/learnOpenGL_Mac/shader/2.1.light_cube.fs";
         Shader lightingShader(colorsVS, colorsFS);
         Shader lightCubeShader(light_cubeVS, light_cubeFS);
         
         float vertices[] = {
-                -0.5f, -0.5f, -0.5f,
-                 0.5f, -0.5f, -0.5f,
-                 0.5f,  0.5f, -0.5f,
-                 0.5f,  0.5f, -0.5f,
-                -0.5f,  0.5f, -0.5f,
-                -0.5f, -0.5f, -0.5f,
+            -0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
+             0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
+             0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
+             0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
+            -0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
+            -0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
 
-                -0.5f, -0.5f,  0.5f,
-                 0.5f, -0.5f,  0.5f,
-                 0.5f,  0.5f,  0.5f,
-                 0.5f,  0.5f,  0.5f,
-                -0.5f,  0.5f,  0.5f,
-                -0.5f, -0.5f,  0.5f,
+            -0.5f, -0.5f,  0.5f,  0.0f,  0.0f,  1.0f,
+             0.5f, -0.5f,  0.5f,  0.0f,  0.0f,  1.0f,
+             0.5f,  0.5f,  0.5f,  0.0f,  0.0f,  1.0f,
+             0.5f,  0.5f,  0.5f,  0.0f,  0.0f,  1.0f,
+            -0.5f,  0.5f,  0.5f,  0.0f,  0.0f,  1.0f,
+            -0.5f, -0.5f,  0.5f,  0.0f,  0.0f,  1.0f,
 
-                -0.5f,  0.5f,  0.5f,
-                -0.5f,  0.5f, -0.5f,
-                -0.5f, -0.5f, -0.5f,
-                -0.5f, -0.5f, -0.5f,
-                -0.5f, -0.5f,  0.5f,
-                -0.5f,  0.5f,  0.5f,
+            -0.5f,  0.5f,  0.5f, -1.0f,  0.0f,  0.0f,
+            -0.5f,  0.5f, -0.5f, -1.0f,  0.0f,  0.0f,
+            -0.5f, -0.5f, -0.5f, -1.0f,  0.0f,  0.0f,
+            -0.5f, -0.5f, -0.5f, -1.0f,  0.0f,  0.0f,
+            -0.5f, -0.5f,  0.5f, -1.0f,  0.0f,  0.0f,
+            -0.5f,  0.5f,  0.5f, -1.0f,  0.0f,  0.0f,
 
-                 0.5f,  0.5f,  0.5f,
-                 0.5f,  0.5f, -0.5f,
-                 0.5f, -0.5f, -0.5f,
-                 0.5f, -0.5f, -0.5f,
-                 0.5f, -0.5f,  0.5f,
-                 0.5f,  0.5f,  0.5f,
+             0.5f,  0.5f,  0.5f,  1.0f,  0.0f,  0.0f,
+             0.5f,  0.5f, -0.5f,  1.0f,  0.0f,  0.0f,
+             0.5f, -0.5f, -0.5f,  1.0f,  0.0f,  0.0f,
+             0.5f, -0.5f, -0.5f,  1.0f,  0.0f,  0.0f,
+             0.5f, -0.5f,  0.5f,  1.0f,  0.0f,  0.0f,
+             0.5f,  0.5f,  0.5f,  1.0f,  0.0f,  0.0f,
 
-                -0.5f, -0.5f, -0.5f,
-                 0.5f, -0.5f, -0.5f,
-                 0.5f, -0.5f,  0.5f,
-                 0.5f, -0.5f,  0.5f,
-                -0.5f, -0.5f,  0.5f,
-                -0.5f, -0.5f, -0.5f,
+            -0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,
+             0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,
+             0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,
+             0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,
+            -0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,
+            -0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,
 
-                -0.5f,  0.5f, -0.5f,
-                 0.5f,  0.5f, -0.5f,
-                 0.5f,  0.5f,  0.5f,
-                 0.5f,  0.5f,  0.5f,
-                -0.5f,  0.5f,  0.5f,
-                -0.5f,  0.5f, -0.5f,
-            };
-        
+            -0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,
+             0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,
+             0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,
+             0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,
+            -0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,
+            -0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f
+        };
         // first, configure the cube's VAO (and VBO)
         unsigned int VBO, cubeVAO;
         glGenVertexArrays(1, &cubeVAO);
@@ -123,18 +121,21 @@ int main(int argc, const char * argv[]) {
         glBindVertexArray(cubeVAO);
 
         // position attribute
-        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
         glEnableVertexAttribArray(0);
+        // normal attribute
+        glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
+        glEnableVertexAttribArray(1);
+
 
         // second, configure the light's VAO (VBO stays the same; the vertices are the same for the light object which is also a 3D cube)
         unsigned int lightCubeVAO;
         glGenVertexArrays(1, &lightCubeVAO);
         glBindVertexArray(lightCubeVAO);
 
-        // we only need to bind to the VBO (to link it with glVertexAttribPointer), no need to fill it; the VBO's data already contains all we need (it's already bound, but we do it again for educational purposes)
         glBindBuffer(GL_ARRAY_BUFFER, VBO);
-
-        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+        // note that we update the lamp's position attribute's stride to reflect the updated buffer data
+        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
         glEnableVertexAttribArray(0);
         
         while(!glfwWindowShouldClose(window)) {
@@ -156,7 +157,9 @@ int main(int argc, const char * argv[]) {
             // be sure to activate shader when setting uniforms/drawing objects
             lightingShader.use();
             lightingShader.setVec3("objectColor", 1.0f, 0.5f, 0.31f);
-            lightingShader.setVec3("lightColor",  1.0f, 1.0f, 1.0f);
+            lightingShader.setVec3("lightColor", 1.0f, 1.0f, 1.0f);
+            lightingShader.setVec3("lightPos", lightPos);
+            lightingShader.setVec3("viewPos", camera.Position);
 
             // view/projection transformations
             glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
@@ -271,7 +274,7 @@ GLFWwindow* initWindow(){
     glfwMakeContextCurrent(window);
     glViewport(0, 0, SCR_WIDTH, SCR_HEIGHT);
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
-//    glfwSetCursorPosCallback(window, mouse_callback);
+    glfwSetCursorPosCallback(window, mouse_callback);
     glfwSetScrollCallback(window, scroll_callback);
     return window;
 }

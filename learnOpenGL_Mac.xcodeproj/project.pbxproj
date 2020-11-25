@@ -36,6 +36,10 @@
 		5F5F5384256BE3A3001229A1 /* light_cube.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = light_cube.fs; sourceTree = "<group>"; };
 		5F5F5385256BE3A3001229A1 /* colors.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = colors.fs; sourceTree = "<group>"; };
 		5F5F5386256BE3A3001229A1 /* light_cube.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = light_cube.vs; sourceTree = "<group>"; };
+		5F5F54E0256E63A0001229A1 /* 2.1.light_cube.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = 2.1.light_cube.vs; sourceTree = "<group>"; };
+		5F5F54E1256E63A0001229A1 /* 2.1.basic_lighting.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = 2.1.basic_lighting.fs; sourceTree = "<group>"; };
+		5F5F54E2256E63A0001229A1 /* 2.1.light_cube.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = 2.1.light_cube.fs; sourceTree = "<group>"; };
+		5F5F54E3256E63A0001229A1 /* 2.1.basic_lighting.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = 2.1.basic_lighting.vs; sourceTree = "<group>"; };
 		5FE53F7C2541A58300730E35 /* vec4.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = vec4.hpp; sourceTree = "<group>"; };
 		5FE53F7D2541A58300730E35 /* integer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = integer.hpp; sourceTree = "<group>"; };
 		5FE53F7E2541A58300730E35 /* vector_relational.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = vector_relational.hpp; sourceTree = "<group>"; };
@@ -334,6 +338,10 @@
 		5F5F5382256BE304001229A1 /* shader */ = {
 			isa = PBXGroup;
 			children = (
+				5F5F54E1256E63A0001229A1 /* 2.1.basic_lighting.fs */,
+				5F5F54E3256E63A0001229A1 /* 2.1.basic_lighting.vs */,
+				5F5F54E2256E63A0001229A1 /* 2.1.light_cube.fs */,
+				5F5F54E0256E63A0001229A1 /* 2.1.light_cube.vs */,
 				5F5F5385256BE3A3001229A1 /* colors.fs */,
 				5F5F5383256BE34B001229A1 /* colors.vs */,
 				5F5F5384256BE3A3001229A1 /* light_cube.fs */,
