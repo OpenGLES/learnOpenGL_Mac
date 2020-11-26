@@ -56,10 +56,14 @@ int main(int argc, const char * argv[]) {
 //        int shaderProgram = createProgram("233", shader_vsh, shader_fsh);
         
         glEnable(GL_DEPTH_TEST);
-        const char *colorsVS = "/Users/echo/Desktop/Demo/learnOpenGL_Mac/learnOpenGL_Mac/shader/3.1.materials.vs";
-        const char *colorsFS = "/Users/echo/Desktop/Demo/learnOpenGL_Mac/learnOpenGL_Mac/shader/3.1.materials.fs";
-        const char *light_cubeVS = "/Users/echo/Desktop/Demo/learnOpenGL_Mac/learnOpenGL_Mac/shader/3.1.light_cube.vs";
-        const char *light_cubeFS = "/Users/echo/Desktop/Demo/learnOpenGL_Mac/learnOpenGL_Mac/shader/3.1.light_cube.fs";
+//        const char *colorsVS = "/Users/echo/Desktop/Demo/learnOpenGL_Mac/learnOpenGL_Mac/shader/colors.vs";
+//        const char *colorsFS = "/Users/echo/Desktop/Demo/learnOpenGL_Mac/learnOpenGL_Mac/shader/colors.fs";
+//        const char *light_cubeVS = "/Users/echo/Desktop/Demo/learnOpenGL_Mac/learnOpenGL_Mac/shader/light_cube.vs";
+//        const char *light_cubeFS = "/Users/echo/Desktop/Demo/learnOpenGL_Mac/learnOpenGL_Mac/shader/light_cube.fs";
+        const char *colorsVS = "/Users/echo/Desktop/Demo/learnOpenGL_Mac/learnOpenGL_Mac/shader/2.1.basic_lighting.vs";
+        const char *colorsFS = "/Users/echo/Desktop/Demo/learnOpenGL_Mac/learnOpenGL_Mac/shader/2.1.basic_lighting.fs";
+        const char *light_cubeVS = "/Users/echo/Desktop/Demo/learnOpenGL_Mac/learnOpenGL_Mac/shader/2.1.light_cube.vs";
+        const char *light_cubeFS = "/Users/echo/Desktop/Demo/learnOpenGL_Mac/learnOpenGL_Mac/shader/2.1.light_cube.fs";
         Shader lightingShader(colorsVS, colorsFS);
         Shader lightCubeShader(light_cubeVS, light_cubeFS);
         
@@ -152,25 +156,10 @@ int main(int argc, const char * argv[]) {
             
             // be sure to activate shader when setting uniforms/drawing objects
             lightingShader.use();
-            lightingShader.setVec3("light.position", lightPos);
+            lightingShader.setVec3("objectColor", 1.0f, 0.5f, 0.31f);
+            lightingShader.setVec3("lightColor", 1.0f, 1.0f, 1.0f);
+            lightingShader.setVec3("lightPos", lightPos);
             lightingShader.setVec3("viewPos", camera.Position);
-
-            // light properties
-            glm::vec3 lightColor;
-            lightColor.x = sin(glfwGetTime() * 2.0f);
-            lightColor.y = sin(glfwGetTime() * 0.7f);
-            lightColor.z = sin(glfwGetTime() * 1.3f);
-            glm::vec3 diffuseColor = lightColor   * glm::vec3(0.5f); // decrease the influence
-            glm::vec3 ambientColor = diffuseColor * glm::vec3(0.2f); // low influence
-            lightingShader.setVec3("light.ambient", ambientColor);
-            lightingShader.setVec3("light.diffuse", diffuseColor);
-            lightingShader.setVec3("light.specular", 1.0f, 1.0f, 1.0f);
-
-            // material properties
-            lightingShader.setVec3("material.ambient", 1.0f, 0.5f, 0.31f);
-            lightingShader.setVec3("material.diffuse", 1.0f, 0.5f, 0.31f);
-            lightingShader.setVec3("material.specular", 0.5f, 0.5f, 0.5f); // specular lighting doesn't have full effect on this object's material
-            lightingShader.setFloat("material.shininess", 32.0f);
 
             // view/projection transformations
             glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
