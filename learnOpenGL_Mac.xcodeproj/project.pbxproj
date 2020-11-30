@@ -44,6 +44,12 @@
 		5F5F54E8256FB5B0001229A1 /* 3.1.light_cube.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = 3.1.light_cube.vs; sourceTree = "<group>"; };
 		5F5F54E9256FB5B0001229A1 /* 3.1.light_cube.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = 3.1.light_cube.fs; sourceTree = "<group>"; };
 		5F5F54EA256FB5B0001229A1 /* 3.1.materials.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = 3.1.materials.fs; sourceTree = "<group>"; };
+		5F5F553D2574CAA3001229A1 /* container2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = container2.png; sourceTree = SOURCE_ROOT; };
+		5F5F553E2574E832001229A1 /* container2_specular.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = container2_specular.png; sourceTree = SOURCE_ROOT; };
+		5F5F553F2574ECCD001229A1 /* 4.2.light_cube.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = 4.2.light_cube.vs; sourceTree = "<group>"; };
+		5F5F55402574ECCD001229A1 /* 4.2.lighting_maps.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = 4.2.lighting_maps.vs; sourceTree = "<group>"; };
+		5F5F55412574ECCD001229A1 /* 4.2.lighting_maps.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = 4.2.lighting_maps.fs; sourceTree = "<group>"; };
+		5F5F55422574ECCD001229A1 /* 4.2.light_cube.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = 4.2.light_cube.fs; sourceTree = "<group>"; };
 		5FE53F7C2541A58300730E35 /* vec4.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = vec4.hpp; sourceTree = "<group>"; };
 		5FE53F7D2541A58300730E35 /* integer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = integer.hpp; sourceTree = "<group>"; };
 		5FE53F7E2541A58300730E35 /* vector_relational.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = vector_relational.hpp; sourceTree = "<group>"; };
@@ -342,6 +348,10 @@
 		5F5F5382256BE304001229A1 /* shader */ = {
 			isa = PBXGroup;
 			children = (
+				5F5F55412574ECCD001229A1 /* 4.2.lighting_maps.fs */,
+				5F5F55402574ECCD001229A1 /* 4.2.lighting_maps.vs */,
+				5F5F55422574ECCD001229A1 /* 4.2.light_cube.fs */,
+				5F5F553F2574ECCD001229A1 /* 4.2.light_cube.vs */,
 				5F5F54EA256FB5B0001229A1 /* 3.1.materials.fs */,
 				5F5F54E7256FB5B0001229A1 /* 3.1.materials.vs */,
 				5F5F54E9256FB5B0001229A1 /* 3.1.light_cube.fs */,
@@ -686,6 +696,8 @@
 		C9940197251A20840094BB7F /* learnOpenGL_Mac */ = {
 			isa = PBXGroup;
 			children = (
+				5F5F553E2574E832001229A1 /* container2_specular.png */,
+				5F5F553D2574CAA3001229A1 /* container2.png */,
 				5FFF51F02551816300D9C1E7 /* awesomeface.png */,
 				5FE540882541AD7B00730E35 /* container.jpeg */,
 				5FE540862541ABE900730E35 /* stb */,
