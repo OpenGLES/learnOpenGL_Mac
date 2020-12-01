@@ -50,6 +50,10 @@
 		5F5F55402574ECCD001229A1 /* 4.2.lighting_maps.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = 4.2.lighting_maps.vs; sourceTree = "<group>"; };
 		5F5F55412574ECCD001229A1 /* 4.2.lighting_maps.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = 4.2.lighting_maps.fs; sourceTree = "<group>"; };
 		5F5F55422574ECCD001229A1 /* 4.2.light_cube.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = 4.2.light_cube.fs; sourceTree = "<group>"; };
+		5F5F556825766ADA001229A1 /* 5.4.light_casters.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = 5.4.light_casters.vs; sourceTree = "<group>"; };
+		5F5F556925766ADA001229A1 /* 5.4.light_cube.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = 5.4.light_cube.vs; sourceTree = "<group>"; };
+		5F5F556A25766ADA001229A1 /* 5.4.light_cube.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = 5.4.light_cube.fs; sourceTree = "<group>"; };
+		5F5F556B25766ADA001229A1 /* 5.4.light_casters.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = 5.4.light_casters.fs; sourceTree = "<group>"; };
 		5FE53F7C2541A58300730E35 /* vec4.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = vec4.hpp; sourceTree = "<group>"; };
 		5FE53F7D2541A58300730E35 /* integer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = integer.hpp; sourceTree = "<group>"; };
 		5FE53F7E2541A58300730E35 /* vector_relational.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = vector_relational.hpp; sourceTree = "<group>"; };
@@ -348,6 +352,10 @@
 		5F5F5382256BE304001229A1 /* shader */ = {
 			isa = PBXGroup;
 			children = (
+				5F5F556B25766ADA001229A1 /* 5.4.light_casters.fs */,
+				5F5F556825766ADA001229A1 /* 5.4.light_casters.vs */,
+				5F5F556A25766ADA001229A1 /* 5.4.light_cube.fs */,
+				5F5F556925766ADA001229A1 /* 5.4.light_cube.vs */,
 				5F5F55412574ECCD001229A1 /* 4.2.lighting_maps.fs */,
 				5F5F55402574ECCD001229A1 /* 4.2.lighting_maps.vs */,
 				5F5F55422574ECCD001229A1 /* 4.2.light_cube.fs */,
